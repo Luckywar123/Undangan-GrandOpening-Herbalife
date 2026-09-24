@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSVP Grand Opening Green Life Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#0f4030; --leaf:#1f8a55; --mint:#cfeedd; --gold:#e0a94a; --cream:#faf5e8;
+  --orange:#ee8347; --ink:#12362a; --err:#c2410c;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Fredoka',system-ui,sans-serif; color:var(--ink); min-height:100vh;
+  background:radial-gradient(circle at 50% 0,#1b6a47 0,var(--deep) 55%);
+  padding:28px 16px 48px; overflow-x:hidden; position:relative;
+}
+.leaf{position:fixed;width:190px;height:190px;background:var(--leaf);border-radius:0 100% 0 100%;z-index:0;opacity:.85}
+.l1{top:-70px;left:-70px}.l2{top:-60px;right:-80px;transform:scaleX(-1);background:#2aa566}
+.l3{bottom:-80px;right:-70px;transform:rotate(180deg)}.l4{bottom:-70px;left:-80px;transform:scaleY(-1);background:#2aa566}
+main{position:relative;z-index:1;max-width:460px;margin:0 auto}
+
+/* hero */
+.hero{text-align:center;color:#fff}
+.mascot{width:150px;height:auto;display:block;margin:0 auto -6px;filter:drop-shadow(0 8px 0 rgba(0,0,0,.18))}
+#sprout{transform-origin:70px 58px;transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.eye{transform-origin:center;transform-box:fill-box;animation:blink 4.5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.mascot.happy{animation:hop .5s 2}
+@keyframes hop{50%{transform:translateY(-14px)}}
+.ribbon{display:inline-block;background:var(--gold);color:var(--deep);font-weight:600;font-size:.95rem;
+  padding:6px 26px;clip-path:polygon(0 0,100% 0,94% 50%,100% 100%,0 100%,6% 50%);letter-spacing:.06em}
+.hero .g{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:2.1rem;line-height:1;margin-top:10px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.6rem,13vw,3.6rem);line-height:1;letter-spacing:.02em;
+  background:linear-gradient(#f6d98b,#c98f2f);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 0 rgba(0,0,0,.25))}
+.hero .club{font-weight:700;font-size:1.5rem;letter-spacing:.14em;margin-top:6px}
+.hero .club b{color:var(--gold)}
+.hero p{color:var(--mint);margin-top:6px}
+
+/* info sticker */
+.info{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 26px}
+.info span{background:var(--cream);color:var(--deep);font-weight:500;font-size:.88rem;padding:7px 13px;border-radius:99px;border:2px solid var(--gold)}
+.info span:nth-child(1){transform:rotate(-2deg)}.info span:nth-child(2){transform:rotate(1.5deg)}.info span:nth-child(3){transform:rotate(-1deg)}
+
+/* card */
+.card{background:var(--cream);border-radius:28px 28px 34px 34px;padding:34px 22px 26px;position:relative;
+  border:3px solid var(--gold);box-shadow:0 10px 0 rgba(0,0,0,.22);transform:rotate(-.6deg)}
+.card::before,.card::after{content:"";position:absolute;top:-14px;width:96px;height:26px;background:#d9c07a;opacity:.92;border-radius:2px}
+.card::before{left:22px;transform:rotate(-5deg)}.card::after{right:22px;transform:rotate(4deg)}
+.grow{margin-bottom:20px}
+.bar{height:14px;background:#e6dfc9;border-radius:99px;overflow:hidden;border:2px solid var(--deep)}
+.bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--leaf) 0 10px,#2aa566 10px 20px);border-radius:99px;transition:width .5s}
+.grow small{display:block;margin-top:6px;font-size:.85rem;color:var(--leaf);font-weight:500}
+.f{margin-bottom:18px;border:0;padding:0;min-width:0}
+.f>label,.f>legend{display:block;font-weight:600;font-size:1.02rem;margin-bottom:7px;padding:0}
+.f em{font-style:normal;font-weight:400;color:#6b7d72;font-size:.85rem}
+input[type=text],input[type=tel],textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:2.5px solid var(--deep);
+  border-radius:16px;background:#fff;color:var(--ink);transition:box-shadow .15s,transform .15s}
+input:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(224,169,74,.55);transform:scale(1.015)}
+textarea{resize:vertical;min-height:70px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills label{position:relative;cursor:pointer}
+.pills input{position:absolute;opacity:0;inset:0}
+.pills span{display:block;padding:10px 15px;border:2.5px solid var(--deep);border-radius:99px;background:#fff;font-weight:500;transition:all .15s}
+.pills label:hover span{transform:translateY(-2px)}
+.pills input:checked+span{background:var(--leaf);color:#fff;transform:rotate(-2deg) scale(1.06);box-shadow:0 4px 0 var(--deep)}
+.pills input:focus-visible+span{outline:3px solid var(--orange);outline-offset:2px}
+.big span{padding:14px 16px;font-size:1.05rem}
+.step{display:flex;align-items:center;gap:14px}
+.step button{width:46px;height:46px;border-radius:50%;border:2.5px solid var(--deep);background:var(--gold);font:700 1.5rem Fredoka;color:var(--deep);cursor:pointer;box-shadow:0 3px 0 var(--deep)}
+.step button:active{transform:translateY(3px);box-shadow:none}
+.step output{font-size:1.9rem;font-weight:700;min-width:2ch;text-align:center}
+.step small{color:#6b7d72}
+.hide{display:none}
+.err{color:var(--err);font-weight:500;min-height:1.3em;font-size:.92rem;margin-bottom:6px}
+.go{width:100%;font:700 1.2rem Fredoka;color:#fff;background:var(--orange);border:3px solid var(--deep);border-radius:99px;padding:15px;cursor:pointer;
+  box-shadow:0 6px 0 var(--deep);transition:transform .1s,box-shadow .1s}
+.go:hover{transform:translateY(-2px)}
+.go:active{transform:translateY(5px);box-shadow:0 1px 0 var(--deep)}
+.go:disabled{opacity:.7;cursor:wait}
+.go:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* ticket */
+.ticket{background:var(--cream);border:3px solid var(--gold);border-radius:26px;text-align:center;position:relative;padding:28px 22px;
+  box-shadow:0 10px 0 rgba(0,0,0,.22);animation:pop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{transform:scale(.6) rotate(-8deg);opacity:0}}
+.ticket::before,.ticket::after{content:"";position:absolute;top:56%;width:30px;height:30px;border-radius:50%;background:var(--deep)}
+.ticket::before{left:-17px}.ticket::after{right:-17px}
+.ticket h2{font-family:'Playfair Display',serif;font-weight:900;font-size:1.7rem;color:var(--deep);margin:6px 0}
+.ticket .nm{font-size:1.9rem;font-weight:700;color:var(--leaf);word-break:break-word}
+.ticket .tag{display:inline-block;margin:10px 0;padding:6px 16px;border-radius:99px;background:var(--deep);color:var(--gold);font-weight:600}
+.ticket hr{border:0;border-top:3px dashed #cdbf98;margin:16px 0}
+.ticket p{margin:4px 0}
+.wa{display:inline-block;margin-top:12px;color:var(--deep);font-weight:600}
+.c{position:fixed;top:-20px;width:10px;height:14px;z-index:9;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(112vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="leaf l1"></div><div class="leaf l2"></div><div class="leaf l3"></div><div class="leaf l4"></div>
+<main>
+  <header class="hero">
+    <svg class="mascot" id="mascot" viewBox="0 0 140 150" aria-hidden="true">
+      <g id="sprout" style="transform:scale(.25)">
+        <path d="M70 60V30" stroke="#2aa566" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M70 42C50 42 40 28 42 12c18 0 28 12 28 30z" fill="#2aa566" stroke="#0f4030" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M70 34c20 0 30-14 28-30-18 0-28 12-28 30z" fill="#4cc38a" stroke="#0f4030" stroke-width="3" stroke-linejoin="round"/>
+      </g>
+      <rect x="30" y="64" width="80" height="70" rx="34" fill="#faf5e8" stroke="#0f4030" stroke-width="3.5"/>
+      <rect x="24" y="56" width="92" height="17" rx="8.5" fill="#e0a94a" stroke="#0f4030" stroke-width="3.5"/>
+      <circle class="eye" cx="55" cy="98" r="5.5" fill="#0f4030"/><circle class="eye" cx="85" cy="98" r="5.5" fill="#0f4030"/>
+      <circle cx="45" cy="110" r="6" fill="#ee8347" opacity=".55"/><circle cx="95" cy="110" r="6" fill="#ee8347" opacity=".55"/>
+      <path id="mouth" d="M62 109Q70 115 78 109" stroke="#0f4030" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="ribbon">It's officially open!</div>
+    <div class="g">Grand</div>
+    <h1>OPENING</h1>
+    <div class="club">GREEN <b>LIFE</b> CLUB</div>
+    <p>Kamu datang kan? Kasih tahu kami ya 🌱</p>
+  </header>
+
+  <div class="info">
+    <span>📅 Minggu, 27 Sep 2026</span><span>⏰ 13.30 WIB</span><span>📍 Green Loft – Green Life, Jl. Pasir Gede Raya</span>
+  </div>
+
+  <form class="card" id="form" novalidate>
+    <div class="grow">
+      <div class="bar"><i id="fill"></i></div>
+      <small id="hint">Isi dulu ya, bibitnya masih kecil 🌱</small>
+    </div>
+
+    <div class="f"><label for="nama">Nama kamu</label>
+      <input type="text" id="nama" maxlength="60" placeholder="Nama lengkap / panggilan" autocomplete="name"></div>
+
+    <div class="f"><label for="wa">No. WhatsApp</label>
+      <input type="tel" id="wa" maxlength="16" placeholder="08xx xxxx xxxx" inputmode="tel" autocomplete="tel"></div>
+
+    <fieldset class="f"><legend>Bisa datang?</legend>
+      <div class="pills big">
+        <label><input type="radio" name="status" value="hadir"><span>🎉 Hadir!</span></label>
+        <label><input type="radio" name="status" value="ragu"><span>🤔 Masih ragu</span></label>
+        <label><input type="radio" name="status" value="tidak"><span>😢 Belum bisa</span></label>
+      </div></fieldset>
+
+    <fieldset class="f" id="guestBox"><legend>Datang sama berapa orang? <em>(termasuk kamu)</em></legend>
+      <div class="step">
+        <button type="button" id="minus" aria-label="Kurangi">−</button>
+        <output id="qty">1</output>
+        <button type="button" id="plus" aria-label="Tambah">+</button>
+        <small id="qtyTxt">solo, keren!</small>
+      </div></fieldset>
+
+    <fieldset class="f"><legend>Kamu tamu dari…</legend>
+      <div class="pills">
+        <label><input type="radio" name="kat" value="keluarga"><span>👨‍👩‍👧 Keluarga</span></label>
+        <label><input type="radio" name="kat" value="teman"><span>🫶 Teman / bestie</span></label>
+        <label><input type="radio" name="kat" value="member"><span>💚 Member</span></label>
+        <label><input type="radio" name="kat" value="lainnya"><span>✨ Lainnya</span></label>
+      </div></fieldset>
+
+    <div class="f"><label for="pesan">Pesan / ucapan <em>(boleh dikosongin)</em></label>
+      <textarea id="pesan" maxlength="200" placeholder="Selamat ya, semoga laris manis! 🌿"></textarea></div>
+
+    <div class="err" id="err" role="alert"></div>
+    <button class="go" id="go" type="submit">Aku datang! 🎉</button>
+  </form>
+
+  <section class="ticket hide" id="ticket" aria-live="polite">
+    <div id="tEmoji" style="font-size:2.6rem">🎟️</div>
+    <h2 id="tTitle">Tiket kamu udah jadi!</h2>
+    <div class="nm" id="tName"></div>
+    <div class="tag" id="tTag"></div>
+    <hr>
+    <p><b>Minggu, 27 Sep 2026</b> · 13.30 WIB</p>
+    <p>Green Loft – Green Life, Jl. Pasir Gede Raya</p>
+    <hr>
+    <p id="tMsg">Screenshot tiket ini ya. Sampai ketemu! 💚</p>
+    <a class="wa" href="https://wa.me/6285220304708" target="_blank" rel="noopener">Ada yang mau ditanya? Chat ANE 💬</a>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+// ====== ISI INI DARI SUPABASE (Project Settings > API) ======
+const SUPABASE_URL = 'https://hnswailhoaebctcczbsk.supabase.co';       // contoh: https://xxxx.supabase.co
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhuc3dhaWxob2FlYmN0Y2N6YnNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMTMyMDAsImV4cCI6MjEwNTc4OTIwMH0.AEgz_sprTEM-hRIPZJi0WB3T7tZiX-DcqBcxpfFE0Ok';  // anon public key
+// =============================================================
+const sb = (SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase) ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+const $ = id => document.getElementById(id);
+const val = n => (document.querySelector(`input[name=${n}]:checked`) || {}).value;
+let qty = 1;
+
+const hints = ['Isi dulu ya, bibitnya masih kecil 🌱','Mulai tumbuh nih…','Makin subur! 🌿','Dikit lagi mekar…','Siap mekar! Tinggal klik 🎉'];
+const qtyTxt = n => n === 1 ? 'solo, keren!' : n === 2 ? 'berdua, so sweet' : n < 5 ? 'rombongan kecil!' : 'rame banget, mantap! 🥳';
+
+function update(){
+  const s = [$('nama').value.trim().length > 1, $('wa').value.replace(/\D/g,'').length >= 9, !!val('status'), !!val('kat')];
+  const n = s.filter(Boolean).length, g = n / 4;
+  $('sprout').style.transform = `scale(${.25 + .75 * g})`;
+  $('fill').style.width = (g * 100) + '%';
+  $('hint').textContent = hints[n];
+  $('mouth').setAttribute('d', n === 4 ? 'M60 106Q70 124 80 106Z' : 'M62 109Q70 115 78 109');
+  $('mouth').setAttribute('fill', n === 4 ? '#ee8347' : 'none');
+  if (n === 4) { $('mascot').classList.remove('happy'); void $('mascot').getBoundingClientRect(); $('mascot').classList.add('happy'); }
+  $('guestBox').classList.toggle('hide', val('status') === 'tidak');
+}
+document.querySelectorAll('input,textarea').forEach(e => e.addEventListener('input', update));
+$('plus').onclick = () => { qty = Math.min(20, qty + 1); setQty(); };
+$('minus').onclick = () => { qty = Math.max(1, qty - 1); setQty(); };
+function setQty(){ $('qty').textContent = qty; $('qtyTxt').textContent = qtyTxt(qty); }
+
+function confetti(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cols = ['#e0a94a','#ee8347','#2aa566','#faf5e8','#4cc38a'];
+  for (let i = 0; i < 60; i++){
+    const c = document.createElement('i'); c.className = 'c';
+    c.style.cssText = `left:${Math.random()*100}vw;background:${cols[i%5]};animation-duration:${2.5+Math.random()*2.5}s;animation-delay:${Math.random()*.8}s;border-radius:${i%3?'2px':'50%'}`;
+    document.body.appendChild(c); setTimeout(() => c.remove(), 6500);
+  }
+}
+
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nama = $('nama').value.trim(), wa = $('wa').value.replace(/[^\d+]/g,''), status = val('status'), kat = val('kat');
+  const err = m => { $('err').textContent = m; };
+  if (nama.length < 2) return err('Nama-nya diisi dulu ya 🙏');
+  if (wa.replace(/\D/g,'').length < 9) return err('Nomor WhatsApp kayaknya belum lengkap.');
+  if (!status) return err('Pilih dulu: hadir, ragu, atau belum bisa.');
+  if (!kat) return err('Pilih kamu tamu dari mana ya.');
+  err(''); $('go').disabled = true; $('go').textContent = 'Nanem bibit… 🌱';
+
+  const row = { nama, whatsapp: wa, status, jumlah: status === 'tidak' ? 0 : qty, kategori: kat, pesan: $('pesan').value.trim() || null };
+  try {
+    if (sb) { const { error } = await sb.from('rsvp').insert(row); if (error) throw error; }
+    else console.warn('Supabase belum diisi, data cuma di-log:', row);
+  } catch (x) {
+    console.error(x); $('go').disabled = false; $('go').textContent = 'Aku datang! 🎉';
+    return err('Gagal kirim. Cek koneksi lalu coba lagi ya.');
+  }
+
+  $('form').classList.add('hide'); $('ticket').classList.remove('hide');
+  $('tName').textContent = nama;
+  const t = { hadir: ['🎟️','Tiket kamu udah jadi!', `Hadir · ${qty} orang`, 'Screenshot tiket ini ya. Sampai ketemu! 💚'],
+              ragu:  ['🤞','Oke, dicatat dulu!', `Masih ragu · ${qty} orang`, 'Kabarin kalau udah pasti ya. Kami tunggu! 💚'],
+              tidak: ['💌','Makasih udah kabarin!', 'Belum bisa hadir', 'Next time kita ketemu ya. Sehat terus! 🌿'] }[status];
+  $('tEmoji').textContent = t[0]; $('tTitle').textContent = t[1]; $('tTag').textContent = t[2]; $('tMsg').textContent = t[3];
+  if (status !== 'tidak') confetti();
+  scrollTo({ top: 0, behavior: 'smooth' });
+});
+update();
+</script>
+</body>
+</html>
